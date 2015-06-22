@@ -1,0 +1,137 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Task3</title>
+        <link rel="stylesheet" href="main.css">      
+    </head>
+    <body>
+        <!-- Container for Slider, Navigation and Pagination Controls -->
+        <div class="gallery-container">           
+            <div class="gallery">
+                <h2>Thumbnail Slider</h2>
+                <!-- The actual moving Slider -->
+                <div class="slider">
+                    <ul>
+                        <li>
+                            <img src="images/bigimg/bigimg1.jpg" class="slides" alt="Image1">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg2.jpg" class="slides" alt="Image2">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg3.jpg" class="slides" alt="Image3">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg4.jpg" class="slides" alt="Image4">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg5.jpg" class="slides" alt="Image5">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg6.jpg" class="slides" alt="Image6">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg7.jpg" class="slides" alt="Image7">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg8.jpg" class="slides" alt="Image8">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg9.jpg" class="slides" alt="Image9">
+                        </li>
+                         
+                        <li>
+                            <img src="images/bigimg/bigimg10.jpg" class="slides" alt="Image10">
+                        </li>
+                    </ul>
+                </div>
+                 
+                <!-- Navigation Button Controls -->
+                 
+                <div class="slider-nav">
+                    <button class="backbtn" data-dir="prev">Previous</button>
+                    <button class="nextbtn" data-dir="next" style="float:right;">Next</button>
+                </div>                    
+            </div>
+            <!-- Pagination Controls -->
+            <div class="slider-pagi">                 
+                <div class="pagi-container">
+                    <!-- Here Thumbnail Paginations will be dynamically assigned a Page ID(i.e. 'pgno'Starting with 0) -->
+                    <ul>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg1.jpg" alt="Image1"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg2.jpg" alt="Image2"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg3.jpg" alt="Image3"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg4.jpg" alt="Image4"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg5.jpg" alt="Image5"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg6.jpg" alt="Image6"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg7.jpg" alt="Image7"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg8.jpg" alt="Image8"/></a></li>
+                        <li><a href="#"><img src="images/thumbimg/thumbimg9.jpg" alt="Image9"/></a></li>                      
+                        <li><a href="#"><img src="images/thumbimg/thumbimg10.jpg" alt="Image10"/></a></li>                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+         
+        <!-- Loading JavaScript Codes. -->
+        <script src="jquery-1.7.1.min.js"></script>
+        <script src="main.js"></script>
+        <script>
+            // 
+             
+            jQuery(document).ready(function ($) {
+                 
+                // creating a container variable to hold the 'UL' element. It uses method chaining.
+                var container=$('div.slider')
+                                            .css('overflow','hidden')
+                                            .children('ul');
+                 
+                // creating pagination variable which holds the 'UL' element.
+                var pagicontainer=$('div.pagi-container').children('ul');
+                 
+                /* 
+                On the event of mouse-hover, 
+                    i) Change the visibility of Button Controls.
+                    ii) SET/RESET the "intv" variable to switch between AutoSlider and Stop mode.
+                */
+                
+                 
+                // Creating the 'slider' instance which will set initial parameters for the Slider.
+                var sliderobj= new slider(container,pagicontainer,$('.slider-nav'));
+                /*
+                This will trigger the 'setCurrentPos' and 'transition' methods on click of any button
+                 "data-dir" attribute associated with the button will determine the direction of sliding.
+                */
+                sliderobj.nav.find('button').on('click', function(){
+                    sliderobj.setCurrentPos($(this).data('dir'));
+                    sliderobj.transition();
+                });
+                 
+                /*
+                This will trigger the 'setCurrentPos' and 'transition' methods on click of any Pagination Thumbnail icon.
+                 "data-pgno" attribute associated with the Thumbnail icons will determine the value of 'current' variable.
+                */
+                sliderobj.pagicontainer.find('li a').on('click', function(){
+                    sliderobj.setCurrentPos($(this).data('pgno'));
+                    sliderobj.transition();                 
+                });
+                 
+                autoSlider(); // Calling autoSlider() method on Page Load.
+                 
+                /* 
+                This function will initialize the interval variable which will cause execution of the inner function after every 3 seconds automatically.
+                */
+                
+                 
+            });
+        </script>
+    </body>
+</html>

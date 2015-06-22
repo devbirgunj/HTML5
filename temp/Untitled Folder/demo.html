@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task 3</title>
+        <style>
+            body{
+                background:#ddd;
+            }
+
+            #slide{
+                width:500px;
+                height:200px;
+                border:#FFFFFF 5px solid;
+                box-shadow: 0 1px 5px #CCCCCC;
+                margin: 50px auto 30px;
+            }
+
+            #slide .mask{
+                width:500px;
+                height:200px;
+                overflow:hidden;
+            }
+
+            #slide .mask .images{
+                width:500px;
+                height:1000px;
+                -webkit-animation:slide 25s infinite linear;
+                animation:slide 25s infinite linear;
+            }
+
+            #slide .mask:hover .images{
+                -webkit-animation-play-state:paused;
+                animation-play-state:paused;
+            }
+
+            #slide .mask .images .img{
+                width:500px;
+                height:200px;
+                overflow:hidden;
+            }
+
+            #slide .mask .images .img img{
+                width:500px;
+                height:200px;
+                -webkit-transition:all 0.2s linear;
+                transition:all 0.2s linear;
+            }
+
+            /*Animación*/
+            @-webkit-keyframes slide{
+                /*FOTO 1*/
+                 0%{ opacity:0; -webkit-transform:translateY(0px); }
+                 1%{ opacity:1; -webkit-transform:translateY(0px); }
+                15%{ opacity:1; -webkit-transform:translateY(0px); }
+                19%{ opacity:1; -webkit-transform:translateY(0px); }
+                20%{ opacity:0; -webkit-transform:translateY(0px); }
+                /*FIN FOTO 1*/
+                
+                /*FOTO 2*/
+                21%{ opacity:0; -webkit-transform:translateY(-200px); }
+                22%{ opacity:1; -webkit-transform:translateY(-200px); }
+                35%{ opacity:1; -webkit-transform:translateY(-200px); }
+                39%{ opacity:1; -webkit-transform:translateY(-200px); }
+                40%{ opacity:0; -webkit-transform:translateY(-200px); }
+                /*FIN FOTO 2*/
+                
+                /*FOTO 3*/
+                41%{ opacity:0; -webkit-transform:translateY(-400px); }
+                42%{ opacity:1; -webkit-transform:translateY(-400px); }
+                55%{ opacity:1; -webkit-transform:translateY(-400px); }
+                59%{ opacity:1; -webkit-transform:translateY(-400px); }
+                60%{ opacity:0; -webkit-transform:translateY(-400px); }
+                /*FIN FOTO 3*/
+                
+                /*FOTO 4*/
+                61%{ opacity:0; -webkit-transform:translateY(-600px); }
+                62%{ opacity:1; -webkit-transform:translateY(-600px); }
+                75%{ opacity:1; -webkit-transform:translateY(-600px); }
+                79%{ opacity:1; -webkit-transform:translateY(-600px); }
+                80%{ opacity:0; -webkit-transform:translateY(-600px); }
+                /*FIN FOTO 4*/
+            }
+            @keyframes slide{
+                /*FOTO 1*/
+                0%{ opacity:0; transform:translateY(0px); }
+                1%{ opacity:1; transform:translateY(0px); }
+                15%{ opacity:1; transform:translateY(0px); }
+                19%{ opacity:1; transform:translateY(0px); }
+                20%{ opacity:0; transform:translateY(0px); }
+                /*FIN FOTO 1*/
+                
+                /*FOTO 2*/
+                21%{ opacity:0; transform:translateY(-200px); }
+                22%{ opacity:1; transform:translateY(-200px); }
+                35%{ opacity:1; transform:translateY(-200px); }
+                39%{ opacity:1; transform:translateY(-200px); }
+                40%{ opacity:0; transform:translateY(-200px); }
+                /*FIN FOTO 2*/
+                
+                /*FOTO 3*/
+                41%{ opacity:0; transform:translateY(-400px); }
+                42%{ opacity:1; transform:translateY(-400px); }
+                55%{ opacity:1; transform:translateY(-400px); }
+                59%{ opacity:1; transform:translateY(-400px); }
+                60%{ opacity:0; transform:translateY(-400px); }
+                /*FIN FOTO 3*/
+                
+                /*FOTO 4*/
+                61%{ opacity:0; transform:translateY(-600px); }
+                62%{ opacity:1; transform:translateY(-600px); }
+                75%{ opacity:1; transform:translateY(-600px); }
+                79%{ opacity:1; transform:translateY(-600px); }
+                80%{ opacity:0; transform:translateY(-600px); }
+                /*FIN FOTO 4*/
+            }
+        </style>
+    </head>
+        <body>
+            <div id="slide">
+            	<div class="mask">
+                	<div class="images">
+                    	<div class="img">
+                        	<img src="image/pic1.jpg" width="500" height="200">
+                        </div>
+                        <div class="img">
+                        	<img src="image/pic2.jpg" width="500" height="200">
+                        </div>
+                        <div class="img">
+                            <img src="image/pic3.jpg" width="500" height="200">
+                        </div>
+                        <div class="img">
+                            <img src="image/pic4.jpg" width="500" height="200">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

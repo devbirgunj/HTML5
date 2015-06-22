@@ -1,0 +1,34 @@
+img{
+	width: 100%;
+}
+
+label {
+	text-align: center;
+}
+
+a h4{
+	font-weight: bold;
+}
+
+.my-label{
+	display: inline-block;
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	font-size: smaller;
+	color: #9d9d9d;
+}
+
+.navbar-inverse {
+	background-color: none; 
+ 	border-color: none; 
+}
+
+.col-md-12{
+	padding-top: 1%;
+}
+
+.col-md-12:hover{
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+}

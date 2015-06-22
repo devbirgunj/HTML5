@@ -1,0 +1,39 @@
+body{
+	background-color: #EEEEEE;
+}
+
+img{
+	height: 135px;
+	border: 2px solid gray;
+	margin-right: 8px;
+}
+
+.main{
+	margin: 0 auto;
+	width: 990px;
+}
+
+a{
+	text-decoration: none;
+	font-weight: bold;
+	border: 1px solid black;
+	width: 20px;
+	display: block;
+	height: 20px;
+	text-align: center;
+	border-radius: 20px;
+}
+
+.main li{
+	list-style-type: none;
+	display: inline;
+}
+
+.main ul{
+	background-color: #262626;
+	padding: 15px;
+}
+
+img :hover:after{
+	content: attr(alt);
+}

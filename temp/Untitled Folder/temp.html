@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Task 3</title>
+		<link rel="stylesheet" href="css/main.css"></link>
+		<script src="js/jquery-1.7.1.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<a href="#" class="carousel-nav prev"><</a>
+			<a href="#" class="carousel-nav next">></a>
+			<img src="image/pic1.jpg" id="0"/>
+			<img src="image/pic2.jpg" id="1" />
+			<img src="image/pic3.jpg" id="2" />
+			<img src="image/pic4.jpg" id="3" />
+			<hr>
+			<nav>
+				<a href="#0">
+					<span class="thumbs"></span>
+				</a>
+				<a href="#1">
+					<span class="thumbs"></span>
+				</a>
+				<a href="#2">
+					<span class="thumbs"></span>
+				</a>
+				<a href="#3">
+					<span class="thumbs"></span>
+				</a>
+			</nav>
+		</div>
+		<script>
+			$(function() {
+				var currentIndex = 0;
+				var itemCount = $('.container > img').length;
+				
+				console.log("itemCount", itemCount);
+
+
+				$('.carousel-nav').on('click', function() {
+					var $active  = $('.container > img.active'),
+					isNext   = $(this).hasClass('next');
+					
+					console.log("ACTIVE:",$active);
+					console.log("HAS_NEXT:",isNext);
+
+					currentIndex = (currentIndex + (isNext ? 1 : -1)) % itemCount;
+
+					if (currentIndex === -1) {
+						currentIndex = itemCount - 1;
+					}
+
+					var $next = $('.container > img:eq(' + currentIndex + ')');
+					$active.addClass(isNext ? 'next-out' : 'prev-out');
+					$next.addClass('active').addClass(isNext ? 'next-in' : 'prev-in');
+					
+
+					setTimeout(function() { 
+						$active.removeClass('active next-out prev-out');
+						$next.removeClass('next-in prev-in')
+					}, 1);
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>
